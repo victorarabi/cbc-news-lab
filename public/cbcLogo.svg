@@ -1,0 +1,41 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve" aria-label="CBC Logo" width="77"  height="77" >
+<style type="text/css">
+  .st0{fill:#ffffff;}
+  .st1{filter:url(#Adobe_OpacityMaskFilter);}
+  .st2{fill-rule:evenodd;clip-rule:evenodd;fill:#ffffff;}
+  .st3{fill:#ffffff;}
+</style>
+<g id="Icon:-Gem">
+  <g transform="translate(0.500000, 0.000000)">
+    <path id="Fill-1" class="st0" d="M10.5,7.6c2,0,3.7,1.6,3.7,3.7s-1.6,3.7-3.7,3.7s-3.7-1.6-3.7-3.7S8.5,7.6,10.5,7.6" fill="#FFFFFF"></path>
+    <path id="Fill-3" class="st0" d="M6.3,14.9c-2,0-3.7-1.6-3.7-3.7c0-2,1.6-3.7,3.7-3.7V14.9z" fill="#FFFFFF"></path>
+    <path id="Fill-5" class="st0" d="M14.7,18.9v-3.5h3.5C18.2,17.4,16.6,18.9,14.7,18.9" fill="#FFFFFF"></path>
+    <path id="Fill-7" class="st0" d="M6.3,3.5V7H2.8C2.8,5.1,4.3,3.5,6.3,3.5" fill="#FFFFFF"></path>
+    <path id="Fill-9" class="st0" d="M6.3,18.9v-3.5H2.8C2.8,17.4,4.3,18.9,6.3,18.9" fill="#FFFFFF"></path>
+    <path id="Fill-11" class="st0" d="M19,14.4V8c1.1,0.7,1.8,1.8,1.8,3.1C20.8,12.5,20,13.7,19,14.4" fill="#FFFFFF"></path>
+    <g id="Group-15" transform="translate(7.090909, 0.973011)">
+      <g id="Fill-13-Clipped">
+        <g id="path-1_1_">
+        </g>
+        <defs>
+          <filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0.2" y="0" width="6.3" height="1.8">
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"></feColorMatrix>
+          </filter>
+        </defs>
+        <mask maskUnits="userSpaceOnUse" x="0.2" y="0" width="6.3" height="1.8" id="mask-2_1_">
+          <g class="st1">
+            <polygon id="path-1_2_" class="st2" points="0.2,0 6.6,0 6.6,1.8 0.2,1.8" fill="#FFFFFF"></polygon>
+          </g>
+        </mask>
+        <path id="Fill-13" class="st3" d="M0.2,1.8h6.3C5.9,0.7,4.8,0,3.4,0C2.1,0,0.9,0.7,0.2,1.8" fill="#FFFFFF"></path>
+      </g>
+    </g>
+    <path id="Fill-16" class="st0" d="M13.6,19.7H7.3c0.7,1.1,1.8,1.8,3.1,1.8C11.8,21.4,13,20.7,13.6,19.7" fill="#FFFFFF"></path>
+    <path id="Fill-18" class="st0" d="M14.2,15.4c0,2-1.6,3.7-3.7,3.7s-3.7-1.6-3.7-3.7H14.2z" fill="#FFFFFF"></path>
+    <path id="Fill-20" class="st0" d="M14.7,14.9c2,0,3.7-1.6,3.7-3.7c0-2-1.6-3.7-3.7-3.7V14.9z" fill="#FFFFFF"></path>
+    <path id="Fill-22" class="st0" d="M14.2,7c0-2-1.6-3.7-3.7-3.7S6.9,4.9,6.9,7H14.2z" fill="#FFFFFF"></path>
+    <path id="Fill-24" class="st0" d="M2,14.4V8C1,8.7,0.3,9.9,0.3,11.2C0.3,12.5,1,13.7,2,14.4" fill="#FFFFFF"></path>
+    <path id="Fill-26" class="st0" d="M18.2,7h-3.5V3.5C16.6,3.5,18.2,5.1,18.2,7" fill="#FFFFFF"></path>
+  </g>
+</g>
+</svg>
