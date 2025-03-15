@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Provider } from "@/components/ui/provider";
+import { Provider } from "@/app/ui/provider";
 import "@/app/styles/globals.css";
 import { radioCanada } from "@/app/styles/fonts";
 

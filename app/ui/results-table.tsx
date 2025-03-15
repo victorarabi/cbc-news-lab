@@ -1,53 +1,100 @@
 "use client";
 
-import { Table, Box, Progress, Center } from "@chakra-ui/react";
+import { Table, Box, Progress } from "@chakra-ui/react";
 import { Party } from "@/app/lib/types";
-import { useColorMode } from "@/components/ui/color-mode";
+import { useColorMode } from "@/app/ui/color-mode";
 
 export default function ResultsTable({ parties }: { parties: Array<Party> }) {
   const { colorMode } = useColorMode();
   return (
-    <Table.Root variant="line" size="md" width="80%">
+    <Table.Root size="md">
       <Table.Header>
-        <Table.Row className="text-xs">
+        <Table.Row className="text-sm" bg={{ _dark: "#1a1a1a" }}>
           <Table.ColumnHeader></Table.ColumnHeader>
           <Table.ColumnHeader></Table.ColumnHeader>
           <Table.ColumnHeader textAlign="center">
-            63 Ridings to majority
+            63 Seats to Majority
           </Table.ColumnHeader>
-          <Table.ColumnHeader textAlign="end">Votes</Table.ColumnHeader>
-          <Table.ColumnHeader textAlign="end">Share</Table.ColumnHeader>
-          <Table.ColumnHeader textAlign="end">
+          <Table.ColumnHeader
+            textAlign="end"
+            borderBottom="2px"
+            borderBottomStyle="solid"
+          >
+            Votes
+          </Table.ColumnHeader>
+          <Table.ColumnHeader
+            textAlign="end"
+            borderBottom="2px"
+            borderBottomStyle="solid"
+          >
+            Share
+          </Table.ColumnHeader>
+          <Table.ColumnHeader
+            textAlign="end"
+            borderBottom="2px"
+            borderBottomStyle="solid"
+          >
             Previous Election Share
           </Table.ColumnHeader>
-          <Table.ColumnHeader textAlign="end">Elected Seats</Table.ColumnHeader>
-          <Table.ColumnHeader textAlign="end">Leading Seats</Table.ColumnHeader>
-          <Table.ColumnHeader textAlign="end">
+          <Table.ColumnHeader
+            textAlign="end"
+            borderBottom="2px"
+            borderBottomStyle="solid"
+          >
+            Elected Seats
+          </Table.ColumnHeader>
+          <Table.ColumnHeader
+            textAlign="end"
+            borderBottom="2px"
+            borderBottomStyle="solid"
+          >
+            Leading Seats
+          </Table.ColumnHeader>
+          <Table.ColumnHeader
+            textAlign="end"
+            borderBottom="2px"
+            borderBottomStyle="solid"
+          >
             Total Elected Seats
           </Table.ColumnHeader>
-          <Table.ColumnHeader textAlign="end">
+          <Table.ColumnHeader
+            textAlign="end"
+            borderBottom="2px"
+            borderBottomStyle="solid"
+          >
             Previous Election Seats
           </Table.ColumnHeader>
-          <Table.ColumnHeader textAlign="end">Net gain</Table.ColumnHeader>
+          <Table.ColumnHeader
+            textAlign="end"
+            borderBottom="2px"
+            borderBottomStyle="solid"
+          >
+            Net gain
+          </Table.ColumnHeader>
         </Table.Row>
       </Table.Header>
       <Table.Body>
         {parties.map((party) => {
-          const color: string =
+          const partyColor: string =
             colorMode === "dark"
               ? party.e.colourDarkElected
               : party.e.colourLightElected;
           if (party.displayOrder < 4) {
             return (
-              <Table.Row key={party.id} className="text-red-50" color={color}>
+              <Table.Row
+                key={party.id}
+                className="text-lg font-medium"
+                color={partyColor}
+                bg={{ _dark: "#1a1a1a" }}
+              >
                 <Table.Cell>
                   <Box
-                    background={color}
-                    width="100%"
-                    height="100%"
-                    color={color}
+                    background={partyColor}
+                    color={partyColor}
+                    maxWidth="4px"
+                    className="grow-0"
                   >
-                    _
+                    |
                   </Box>
                 </Table.Cell>
                 <Table.Cell>{party.englishName}</Table.Cell>
@@ -60,16 +107,16 @@ export default function ResultsTable({ parties }: { parties: Array<Party> }) {
                   >
                     <Progress.Track className="flex">
                       <Progress.Range
-                        backgroundColor={color}
+                        backgroundColor={partyColor}
                         color="white"
                       ></Progress.Range>
                     </Progress.Track>
                     <Progress.Label
                       textAlign="center"
                       position="absolute"
-                      bottom="-4px"
+                      bottom="-3px"
                       right="125px"
-                      color="white"
+                      color={colorMode === "light" ? "grey" : "white"}
                     >
                       |
                     </Progress.Label>
