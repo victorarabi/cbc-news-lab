@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { radioCanada } from "@/app/styles/fonts";
+import { Provider } from "@/components/ui/provider";
 import "@/app/styles/globals.css";
+import { radioCanada } from "@/app/styles/fonts";
 
 export const metadata: Metadata = {
   title: "Ontario Votes 2025 results",
   description: "Ontario 2025 election results",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout(props: { children: React.ReactNode }) {
+  const { children } = props;
   return (
-    <html lang="en">
-      <body className={`${radioCanada.className} antialiased`}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${radioCanada.className} antialiased`}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }
