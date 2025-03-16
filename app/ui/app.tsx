@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Flex, Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { CloseRace, Party, Riding, ToggleItems } from "@/app/lib/types";
@@ -55,6 +56,21 @@ export default function App({
         >
           Ontario Votes
           <span className="font-thin block">2025</span>
+        </Box>
+        <Box marginTop="10px" marginBottom="10px">
+          <p className="font-semibold mb-[10px] text-xl">
+            Doug Ford’s PCs cruise to rare 3rd-straight majority
+          </p>
+          <p className="mb-[10px]">
+            It’s the first time since 1959 that a party leader has won three
+            consecutive majorities.
+          </p>
+          <Link
+            href="https://www.cbc.ca/news/canada/toronto/ontario-election-2025-results-ford-1.7470513"
+            className="text-blue-400 underline"
+          >
+            Read more coverage here
+          </Link>
         </Box>
         <div className="w-fit">
           <p className="m-b-[5px] text-center leading-[60px]">
