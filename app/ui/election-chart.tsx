@@ -76,7 +76,13 @@ const renderActiveShape = (props: any) => {
   );
 };
 
-export default function electionChart({ parties }: { parties: Array<Party> }) {
+export default function electionChart({
+  parties,
+  electionDataToDisplay,
+}: {
+  parties: Array<Party>;
+  electionDataToDisplay: string;
+}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = (_: Event, index: number) => {
     setActiveIndex(index);
@@ -88,12 +94,21 @@ export default function electionChart({ parties }: { parties: Array<Party> }) {
   parties.forEach((party) => {
     if (party.displayOrder < 4) {
       const name: string = party.englishCode;
-      const value: number = party.totalVotesPercentage * 100;
+      const value: number =
+        (electionDataToDisplay === "current"
+          ? party.totalVotesPercentage
+          : party.previousTotalVotesPercentage) * 100;
       const color: string = party.e?.colourDarkElected;
+
       data.push({ name, value });
       COLORS.push(color);
     } else if (party.displayOrder < 6) {
-      otherVotes = otherVotes + party.totalVotesPercentage * 100;
+      otherVotes =
+        otherVotes +
+        (electionDataToDisplay === "current"
+          ? party.totalVotesPercentage
+          : party.previousTotalVotesPercentage) *
+          100;
     } else if (party.displayOrder === 6) {
       data.push({ name: "OTHERS", value: otherVotes });
       COLORS.push("#6d777e");

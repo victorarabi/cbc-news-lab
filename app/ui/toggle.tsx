@@ -1,3 +1,5 @@
+"use client";
+
 import { SegmentGroup } from "@chakra-ui/react";
 import { ToggleItems } from "@/app/lib/types";
 

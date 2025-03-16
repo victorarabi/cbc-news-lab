@@ -66,10 +66,16 @@ export default function App({
 
         <Flex alignItems="center">
           <div>
-            <MajorityChart parties={parties} />
+            <MajorityChart
+              parties={parties}
+              electionDataToDisplay={electionDataToDisplay}
+            />
           </div>
           <div className="w-[45%] h-[300px]">
-            <ElectionChart parties={parties} />
+            <ElectionChart
+              parties={parties}
+              electionDataToDisplay={electionDataToDisplay}
+            />
           </div>
         </Flex>
         <ResultsTable parties={parties} />
