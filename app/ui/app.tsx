@@ -4,7 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { Flex, Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import { CloseRace, Party, Riding, ToggleItems } from "@/app/lib/types";
+import {
+  Activity,
+  CloseRace,
+  Party,
+  Riding,
+  ToggleItems,
+} from "@/app/lib/types";
 import { ColorModeButton } from "@/app/ui/color-mode";
 import { robotoSlab } from "@/app/styles/fonts";
 
@@ -26,10 +32,12 @@ export default function App({
   parties,
   ridings,
   closeRaces,
+  activity,
 }: {
   parties: Array<Party>;
   ridings: Array<Riding>;
   closeRaces: Array<CloseRace>;
+  activity: Array<Activity>;
 }) {
   const [electionDataToDisplay, setElectionDataToDisplay] = useState("current");
   const electionToggleOptions: Array<ToggleItems> = [
@@ -97,7 +105,11 @@ export default function App({
           </div>
         </Flex>
         <ResultsTable parties={parties} />
-        <CloseRaces ridings={ridings} closeRaces={closeRaces} />
+        <CloseRaces
+          ridings={ridings}
+          closeRaces={closeRaces}
+          activity={activity}
+        />
       </div>
       <Footer />
     </Flex>

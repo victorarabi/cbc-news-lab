@@ -74,6 +74,16 @@ export type Candidate = {
   partyCode: string;
 };
 
+export type Activity = {
+  id: number;
+  riding_id: number;
+  title: string;
+  description: string;
+  icon_text: string;
+  icon_party: string;
+  created_at: string;
+};
+
 export type CloseRace = {
   id: number;
   isPinned: boolean;
