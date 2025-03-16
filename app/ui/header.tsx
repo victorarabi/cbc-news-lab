@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import SVGIMG from "@/public/cbcLogo.svg";
 import Link from "next/link";
 import { DarkMode } from "@/app/ui/color-mode";
+import SVGIMG from "@/public/cbcLogo.svg";
 
 export default function Header() {
   return (

@@ -2,7 +2,7 @@
 
 import { CloseRace, Riding } from "@/app/lib/types";
 import { Table, Card, Grid, Flex, Box } from "@chakra-ui/react";
-import { useColorMode } from "./color-mode";
+import { useColorMode } from "@/app/ui/color-mode";
 
 export default function CloseRaces({
   ridings,

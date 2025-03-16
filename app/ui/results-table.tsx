@@ -3,11 +3,12 @@
 import { Table, Box, Progress, Flex } from "@chakra-ui/react";
 import { Party } from "@/app/lib/types";
 import { useColorMode } from "@/app/ui/color-mode";
-import { robotoSlab } from "../styles/fonts";
+import { robotoSlab } from "@/app/styles/fonts";
 
 export default function ResultsTable({ parties }: { parties: Array<Party> }) {
   const { colorMode } = useColorMode();
   const bgDark: string = "var(--bg-dark)";
+
   return (
     <Flex direction="column">
       <Box
@@ -21,7 +22,6 @@ export default function ResultsTable({ parties }: { parties: Array<Party> }) {
       <Table.Root size="sm" suppressHydrationWarning>
         <Table.Header>
           <Table.Row className="text-sm" bg={{ _dark: bgDark }}>
-            <Table.ColumnHeader></Table.ColumnHeader>
             <Table.ColumnHeader></Table.ColumnHeader>
             <Table.ColumnHeader textAlign="center">
               63 Seats to Majority
@@ -110,17 +110,15 @@ export default function ResultsTable({ parties }: { parties: Array<Party> }) {
                   color={partyColor}
                   bg={{ _dark: bgDark }}
                 >
-                  <Table.Cell>
-                    <Box
-                      background={partyColor}
-                      color={partyColor}
-                      maxWidth="4px"
-                      className="grow-0"
-                    >
-                      |
-                    </Box>
+                  <Table.Cell
+                    borderLeft="5px"
+                    borderLeftColor={partyColor}
+                    borderLeftStyle="solid"
+                    color={partyColor}
+                    fontWeight="bold"
+                  >
+                    {englishName}
                   </Table.Cell>
-                  <Table.Cell>{englishName}</Table.Cell>
                   <Table.Cell>
                     <Progress.Root
                       max={124}

@@ -12,7 +12,10 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${radioCanada.className} antialiased`}>
+      <body
+        className={`${radioCanada.className} antialiased`}
+        suppressHydrationWarning
+      >
         <Provider>{children}</Provider>
       </body>
     </html>
