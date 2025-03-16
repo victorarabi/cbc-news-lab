@@ -1,12 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { Flex, Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import { CloseRace, Party, Riding } from "@/app/lib/types";
+import { CloseRace, Party, Riding, ToggleItems } from "@/app/lib/types";
 import { ColorModeButton } from "@/app/ui/color-mode";
 import { robotoSlab } from "@/app/styles/fonts";
 
 const Header = dynamic(() => import("@/app/ui/header"));
+const ElectionToggle = dynamic(() => import("@/app/ui/toggle"));
 const MajorityChart = dynamic(() => import("@/app/ui/majority-chart"), {
   ssr: false,
 });
@@ -28,6 +30,11 @@ export default function App({
   ridings: Array<Riding>;
   closeRaces: Array<CloseRace>;
 }) {
+  const [electionDataToDisplay, setElectionDataToDisplay] = useState("current");
+  const electionToggleOptions: Array<ToggleItems> = [
+    { value: "current", label: "Current" },
+    { value: "previous", label: "Previous" },
+  ];
   return (
     <Flex
       bg={{ _dark: "#1a1a1a" }}
@@ -48,6 +55,15 @@ export default function App({
         >
           Ontario Votes
         </Box>
+        <div className="w-fit">
+          <p className="m-b-[5px] text-center">Election to display</p>
+          <ElectionToggle
+            items={electionToggleOptions}
+            value={electionDataToDisplay}
+            setValue={setElectionDataToDisplay}
+          />
+        </div>
+
         <Flex alignItems="center">
           <div>
             <MajorityChart parties={parties} />
