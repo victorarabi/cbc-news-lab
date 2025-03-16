@@ -78,3 +78,8 @@ export type CloseRace = {
   id: number;
   isPinned: boolean;
 };
+
+export type ChartData = {
+  name: string;
+  value: number;
+};
