@@ -51,19 +51,21 @@ export default function App({
           fontSize="6xl"
           marginTop="10px"
           marginBottom="10px"
-          className={`${robotoSlab.className} antialized`}
+          className={`${robotoSlab.className} antialized leading-[60px]`}
         >
           Ontario Votes
+          <span className="font-thin block">2025</span>
         </Box>
         <div className="w-fit">
-          <p className="m-b-[5px] text-center">Election to display</p>
+          <p className="m-b-[5px] text-center leading-[60px]">
+            Election to display
+          </p>
           <ElectionToggle
             items={electionToggleOptions}
             value={electionDataToDisplay}
             setValue={setElectionDataToDisplay}
           />
         </div>
-
         <Flex alignItems="center">
           <div>
             <MajorityChart

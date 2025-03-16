@@ -8,6 +8,6 @@ export const radioCanada = Radio_Canada({
 });
 
 export const robotoSlab = Roboto_Slab({
-  weight: "500",
+  weight: ["100", "500"],
   subsets: ["latin"],
 });

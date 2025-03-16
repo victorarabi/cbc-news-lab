@@ -91,7 +91,7 @@ export default function electionChart({
   const COLORS: Array<string> = [];
   let otherVotes: number = 0;
 
-  parties.forEach((party) => {
+  parties.forEach((party, index) => {
     if (party.displayOrder < 4) {
       const name: string = party.englishCode;
       const value: number =
@@ -102,16 +102,17 @@ export default function electionChart({
 
       data.push({ name, value });
       COLORS.push(color);
-    } else if (party.displayOrder < 6) {
+    } else if (index <= parties.length - 1) {
       otherVotes =
         otherVotes +
         (electionDataToDisplay === "current"
           ? party.totalVotesPercentage
           : party.previousTotalVotesPercentage) *
           100;
-    } else if (party.displayOrder === 6) {
-      data.push({ name: "OTHERS", value: otherVotes });
-      COLORS.push("#6d777e");
+      if (index === parties.length - 1) {
+        data.push({ name: "OTHERS", value: otherVotes });
+        COLORS.push("#6d777e");
+      }
     }
   });
 
