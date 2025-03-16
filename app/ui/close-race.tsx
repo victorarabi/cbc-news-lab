@@ -27,8 +27,15 @@ export default function CloseRaces({
   });
   return (
     <Flex direction="column" marginBottom="30px">
-      <Box fontSize="xl" marginTop="10px" marginBottom="10px">
+      <Box
+        fontSize="xl"
+        marginTop="10px"
+        marginBottom="10px"
+        display="flex"
+        alignItems="center"
+      >
         Close Races
+        <p className="text-xs ml-[5px]">(Hove over card for more details)</p>
       </Box>
       <Grid templateColumns="repeat(3, minmax(0, 1fr))" gap="30px">
         {closeRaceRidings.map((riding: Riding) => {
@@ -54,7 +61,7 @@ export default function CloseRaces({
             color: partyColor,
           };
           return (
-            <Tooltip data={data}>
+            <Tooltip key={id} data={data}>
               <Card.Root key={id} shadow={`2px 2px 7px 2px ${shadowColor}`}>
                 <Card.Header>{englishName}</Card.Header>
                 <Card.Body>
