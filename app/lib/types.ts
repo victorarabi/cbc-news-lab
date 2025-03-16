@@ -2,7 +2,7 @@
 export type Party = {
   currentSeats: number;
   displayOrder: number;
-  e: elected;
+  e: Elected;
   electedSeats: number;
   englishCode: string;
   englishName: string;
@@ -25,7 +25,7 @@ export type Party = {
   upstream_slug: string;
 };
 
-export type elected = {
+export type Elected = {
   colourDarkElected: string;
   colourDarkElectedText: string;
   colourDarkLeading: string;
@@ -40,4 +40,41 @@ export type elected = {
   partyName: string;
   partyNameShort: string;
   winnerParty: string;
+};
+
+export type Riding = {
+  id: number;
+  ridingNumber: number;
+  englishName: string;
+  totalVoters: number;
+  totalPolls: number;
+  previousElectedPartyCode: string;
+  callerCode: string;
+  isCandidatedElected: boolean;
+  pollsReported: number;
+  totalVotesReported: number;
+  candidateVotesLead: number;
+  parties: Array<Candidate>;
+};
+
+export type Candidate = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  partyId: number;
+  incumbent: string;
+  totalVotes: number;
+  totalVotesPosition: number;
+  totalVotesPercentageLead: string;
+  isAcclaimed: boolean;
+  isCandidatedElected: number;
+  votesPercentage: string;
+  votesLead: number;
+  votes: number;
+  partyCode: string;
+};
+
+export type CloseRace = {
+  id: number;
+  isPinned: boolean;
 };

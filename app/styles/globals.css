@@ -3,5 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --bg-dark-color: #1a1a1a;
+  --bg-dark: #1a1a1a;
+  --lib-dark: #a3272d;
+  --lib-dark-shadow: #a3272d33;
+  --lib-light: #b02229;
+  --lib-light-shadow: #b0222933;
+  --ndp-dark: #db7a1a;
+  --ndp-dark-shadow: #db7a1a33;
+  --ndp-light: #e87504;
+  --ndp-light-shadow: #e8750433;
+  --pc-dark: #296299;
+  --pc-dark-shadow: #29629933;
+  --pc-light: #1c4f80;
+  --pc-light-shadow: #1c4f8033;
 }
