@@ -15,7 +15,6 @@ const renderActiveShape = (props: any) => {
     endAngle,
     fill,
     payload,
-    percent,
     value,
   } = props;
   const sin = Math.sin(-RADIAN * midAngle);
@@ -70,7 +69,7 @@ const renderActiveShape = (props: any) => {
         textAnchor={textAnchor}
         fill="#999"
       >
-        {`${(percent * 100).toFixed(2)}%`}
+        {`${value.toFixed(2)}%`}
       </text>
     </g>
   );
@@ -88,15 +87,12 @@ export default function electionChart({ parties }: { parties: Array<Party> }) {
   parties.forEach((party) => {
     if (party.displayOrder < 4) {
       const name: string = party.englishCode;
-      const value: number = Number(
-        (party.totalVotesPercentage * 100).toFixed(2)
-      );
+      const value: number = party.totalVotesPercentage * 100;
       const color: string = party.e?.colourDarkElected;
       data.push({ name, value });
       COLORS.push(color);
     } else if (party.displayOrder < 6) {
-      otherVotes =
-        otherVotes + Number((party.totalVotesPercentage * 100).toFixed(2));
+      otherVotes = otherVotes + party.totalVotesPercentage * 100;
     } else if (party.displayOrder === 6) {
       data.push({ name: "OTHERS", value: otherVotes });
       COLORS.push("#6d777e");
@@ -118,7 +114,7 @@ export default function electionChart({ parties }: { parties: Array<Party> }) {
           dataKey="value"
           onMouseEnter={onPieEnter}
         >
-          {data.map((entry, index) => (
+          {data.map((_entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
