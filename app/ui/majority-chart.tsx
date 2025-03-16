@@ -4,6 +4,14 @@ import { Table, Progress } from "@chakra-ui/react";
 import { Party } from "@/app/lib/types";
 import { useColorMode } from "@/app/ui/color-mode";
 
+/**
+ * Majority chart component
+ *
+ * @component
+ * @param parties - prop for Array of party details
+ * @param electionDataToDisplay - prop that allows for selection of displaying previous or current election data on the chart
+ * @returns Chart number of elected seats per party.
+ */
 export default function MajorityChart({
   parties,
   electionDataToDisplay,

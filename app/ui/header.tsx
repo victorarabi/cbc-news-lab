@@ -5,6 +5,12 @@ import Link from "next/link";
 import { DarkMode } from "@/app/ui/color-mode";
 import SVGIMG from "@/public/cbcLogo.svg";
 
+/**
+ * Header component.
+ *
+ * @component
+ * @returns Header.
+ */
 export default function Header() {
   return (
     <header className="bg-[#272c30]">

@@ -3,6 +3,12 @@ import Link from "next/link";
 import { DarkMode } from "@/app/ui/color-mode";
 import SVGIMG from "@/public/cbcLogo.svg";
 
+/**
+ * Footer component.
+ *
+ * @component
+ * @returns Footer.
+ */
 export default function Footer() {
   return (
     <div className="bg-[#030303]">

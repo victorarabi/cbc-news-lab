@@ -4,6 +4,13 @@ import { Table, Box, Progress, Flex } from "@chakra-ui/react";
 import { Party } from "@/app/lib/types";
 import { useColorMode } from "@/app/ui/color-mode";
 
+/**
+ * Table results component
+ *
+ * @component
+ * @param parties - prop for Array of party details
+ * @returns Table that display most details of the current and previous elections for top 3 parties and accummulated of all other parties.
+ */
 export default function ResultsTable({ parties }: { parties: Array<Party> }) {
   const { colorMode } = useColorMode();
   const bgDark: string = "var(--bg-dark)";
@@ -136,6 +143,7 @@ export default function ResultsTable({ parties }: { parties: Array<Party> }) {
                 </Table.Cell>
               </Table.Row>
             );
+            // accumulates election data for all parties other than the top 3 and returns one single portion
           } else if (index <= parties.length - 1) {
             otherTotalVotes = otherTotalVotes + totalVotes;
             otherTotalVotesPercentage =

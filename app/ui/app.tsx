@@ -28,6 +28,16 @@ const ResultsTable = dynamic(() => import("@/app/ui/results-table"), {
 const CloseRaces = dynamic(() => import("@/app/ui/close-race"), { ssr: false });
 const Footer = dynamic(() => import("@/app/ui/footer"));
 
+/**
+ * Main body component of the app.
+ *
+ * @component
+ * @param parties - prop for Array of party details
+ * @param ridings - prop for Array of riding details
+ * @param closeRaces - prop for ridings in which there was a close race
+ * @param activiy - prop for array of updates for each party
+ * @returns Main page.
+ */
 export default function App({
   parties,
   ridings,
@@ -39,11 +49,14 @@ export default function App({
   closeRaces: Array<CloseRace>;
   activity: Array<Activity>;
 }) {
+  // state
+  // controls which election data to display - previous or current. Default value is 'current'
   const [electionDataToDisplay, setElectionDataToDisplay] = useState("current");
   const electionToggleOptions: Array<ToggleItems> = [
     { value: "current", label: "Current" },
     { value: "previous", label: "Previous" },
   ];
+
   return (
     <Flex
       bg={{ _dark: "#1a1a1a" }}

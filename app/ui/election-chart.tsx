@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PieChart, Pie, Sector, ResponsiveContainer, Cell } from "recharts";
 import { ChartData, Party } from "@/app/lib/types";
 
-// creates dynamic label
+// creates dynamic label when hovering over each section of the pie chart
 const renderActiveShape = (props: any) => {
   const RADIAN = Math.PI / 180;
   const {
@@ -76,6 +76,14 @@ const renderActiveShape = (props: any) => {
   );
 };
 
+/**
+ * Pie chart to display election share for top 3 + others
+ *
+ * @component
+ * @param parties - prop for Array of party details
+ * @param electionDataToDisplay - prop that allows for selection of displaying previous or current election data on the chart
+ * @returns Pie chart with election share.
+ */
 export default function electionChart({
   parties,
   electionDataToDisplay,
@@ -102,6 +110,7 @@ export default function electionChart({
 
       data.push({ name, value });
       COLORS.push(color);
+      // accumulates election data for all parties other than the top 3 and returns one single portion
     } else if (index <= parties.length - 1) {
       otherVotes =
         otherVotes +

@@ -18,6 +18,13 @@ export interface TooltipProps extends ChakraTooltip.RootProps {
   };
 }
 
+/**
+ * Tooltip component for close race cards.
+ *
+ * @component
+ * @param data - prop to display close race data in the tooltip
+ * @returns Tooltip when hovering over close race card.
+ */
 export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
   function Tooltip(props, ref) {
     const {
@@ -31,6 +38,7 @@ export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
       ...rest
     } = props;
 
+    // format data to correct display on the tooltip
     const parties: { PC: string; NDP: string; LIB: string } = {
       PC: "Progressive Conservative",
       NDP: "New Democrat",
@@ -46,6 +54,7 @@ export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
         : "OTHER";
     const position: string = data.position.length > 0 ? data.position : "LEAD";
 
+    // ensures that tooltip only display when card is hovered over
     if (disabled) return children;
 
     return (

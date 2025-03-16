@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Color variables */
 :root {
   --bg-dark: #1a1a1a;
   --lib-dark: #a3272d;

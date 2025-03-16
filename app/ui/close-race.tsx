@@ -5,6 +5,15 @@ import { Activity, CloseRace, Riding } from "@/app/lib/types";
 import { Table, Card, Grid, Flex, Box, JsxElement } from "@chakra-ui/react";
 import { useColorMode } from "@/app/ui/color-mode";
 
+/**
+ * Close races component.
+ *
+ * @component
+ * @param ridings - prop for Array of riding details
+ * @param closeRaces - prop for ridings in which there was a close race
+ * @param activiy - prop for array of updates for each party
+ * @returns Grid containing the card for each Close race riding.
+ */
 export default function CloseRaces({
   ridings,
   closeRaces,
@@ -16,8 +25,8 @@ export default function CloseRaces({
 }) {
   const bgColor: string = "#111111";
   const { colorMode } = useColorMode();
-  const closeRaceRidings: Array<Riding> = [];
 
+  const closeRaceRidings: Array<Riding> = [];
   closeRaces.map((closeRace) => {
     ridings.map((riding) => {
       if (closeRace.id == riding.id) {
