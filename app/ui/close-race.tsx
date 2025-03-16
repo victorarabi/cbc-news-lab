@@ -24,7 +24,7 @@ export default function CloseRaces({
   });
 
   return (
-    <Flex direction="column">
+    <Flex direction="column" marginBottom="30px">
       <Box fontSize="xl" marginTop="10px" marginBottom="10px">
         Close Races
       </Box>

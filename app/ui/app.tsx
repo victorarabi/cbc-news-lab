@@ -32,11 +32,11 @@ export default function App({
     <Flex
       bg={{ _dark: "#1a1a1a" }}
       direction="column"
-      className="h-dvh"
+      className="m-h-[1286px] h-auto"
       justifyContent="space-between"
     >
       <Header />
-      <div className="md:max-w-[1920p] md:mr-auto md:ml-auto flex flex-col align-start h-full">
+      <div className="md:max-w-[1920p] md:mr-auto md:ml-auto flex flex-col align-start h-auto">
         <div className="flex justify-end">
           <ColorModeButton />
         </div>

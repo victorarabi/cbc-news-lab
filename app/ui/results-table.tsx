@@ -7,6 +7,13 @@ import { useColorMode } from "@/app/ui/color-mode";
 export default function ResultsTable({ parties }: { parties: Array<Party> }) {
   const { colorMode } = useColorMode();
   const bgDark: string = "var(--bg-dark)";
+  const otherPartyColor = "var(--other-party)";
+
+  let otherTotalVotes: number = 0;
+  let otherTotalVotesPercentage: number = 0;
+  let otherPreviousTotalVotesPercentage: number = 0;
+  let otherTotalElectedLeadingSeats: number = 0;
+  let otherPreviousElected: number = 0;
 
   return (
     <Table.Root
@@ -76,7 +83,7 @@ export default function ResultsTable({ parties }: { parties: Array<Party> }) {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {parties.map((party) => {
+        {parties.map((party, index) => {
           const partyColor: string =
             colorMode === "dark"
               ? party.e.colourDarkElected
@@ -85,7 +92,6 @@ export default function ResultsTable({ parties }: { parties: Array<Party> }) {
           const {
             id,
             displayOrder,
-            englishName,
             totalElectedLeadingSeats,
             totalVotes,
             totalVotesPercentage,
@@ -94,6 +100,7 @@ export default function ResultsTable({ parties }: { parties: Array<Party> }) {
             leadingSeats,
             previousElected,
           } = party;
+
           if (displayOrder < 4) {
             return (
               <Table.Row
@@ -123,12 +130,61 @@ export default function ResultsTable({ parties }: { parties: Array<Party> }) {
                 <Table.Cell textAlign="end">
                   {totalElectedLeadingSeats}
                 </Table.Cell>
-                <Table.Cell textAlign="end">{party.previousElected}</Table.Cell>
+                <Table.Cell textAlign="end">{previousElected}</Table.Cell>
                 <Table.Cell textAlign="end">
                   {totalElectedLeadingSeats - previousElected}
                 </Table.Cell>
               </Table.Row>
             );
+          } else if (index <= parties.length - 1) {
+            otherTotalVotes = otherTotalVotes + totalVotes;
+            otherTotalVotesPercentage =
+              otherTotalVotesPercentage + totalVotesPercentage;
+            otherPreviousTotalVotesPercentage =
+              otherPreviousTotalVotesPercentage + previousTotalVotesPercentage;
+            otherTotalElectedLeadingSeats =
+              otherTotalElectedLeadingSeats + totalElectedLeadingSeats;
+            otherPreviousElected;
+            otherPreviousElected = otherPreviousElected + previousElected;
+
+            if (index === parties.length - 1) {
+              return (
+                <Table.Row
+                  key={id}
+                  className="text-lg font-medium"
+                  color={otherPartyColor}
+                  bg={{ _dark: bgDark }}
+                >
+                  <Table.Cell
+                    textAlign="end"
+                    borderLeft="5px"
+                    borderLeftColor={otherPartyColor}
+                    borderLeftStyle="solid"
+                    color={otherPartyColor}
+                    fontWeight="bold"
+                  >
+                    {new Intl.NumberFormat().format(otherTotalVotes)}
+                  </Table.Cell>
+                  <Table.Cell textAlign="end">
+                    {(otherTotalVotesPercentage * 100).toFixed(2)}%
+                  </Table.Cell>
+                  <Table.Cell textAlign="end">
+                    {(otherPreviousTotalVotesPercentage * 100).toFixed(2)}%
+                  </Table.Cell>
+                  <Table.Cell textAlign="end">{electedSeats}</Table.Cell>
+                  <Table.Cell textAlign="end">{leadingSeats}</Table.Cell>
+                  <Table.Cell textAlign="end">
+                    {otherTotalElectedLeadingSeats}
+                  </Table.Cell>
+                  <Table.Cell textAlign="end">
+                    {otherPreviousElected}
+                  </Table.Cell>
+                  <Table.Cell textAlign="end">
+                    {otherTotalElectedLeadingSeats - otherPreviousElected}
+                  </Table.Cell>
+                </Table.Row>
+              );
+            }
           }
         })}
       </Table.Body>

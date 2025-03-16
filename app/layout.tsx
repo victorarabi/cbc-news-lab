@@ -13,7 +13,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${radioCanada.className} antialiased`}
+        className={`${radioCanada.className} antialiased `}
         suppressHydrationWarning
       >
         <Provider>{children}</Provider>
